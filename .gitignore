@@ -1,0 +1,28 @@
+# Node / Angular
+frontend/node_modules/
+frontend/dist/
+frontend/.angular/cache/
+
+# Java / Spring Boot (Maven or Gradle)
+backend/target/
+backend/build/
+backend/.mvn/wrapper/maven-wrapper.jar
+backend/.gradle/
+backend/.classpath
+backend/.project
+backend/.settings/
+
+# IDEs
+**/.idea/
+**/.vscode/
+**/.DS_Store
+
+# Logs & temps
+**/*.log
+**/.env
+**/.env.*
+**/tmp/
+**/temp/
+
+# OS files
+Thumbs.db
