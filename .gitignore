@@ -26,3 +26,6 @@ backend/.settings/
 
 # OS files
 Thumbs.db
+
+# Large archives
+frontend/debate-frontend_beforeOptionalDebateDetailsPage.zip
