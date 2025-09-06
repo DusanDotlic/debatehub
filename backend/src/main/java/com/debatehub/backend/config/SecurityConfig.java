@@ -2,10 +2,10 @@ package com.debatehub.backend.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
-import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 public class SecurityConfig {
@@ -14,14 +14,20 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
         http
                 .csrf(csrf -> csrf.disable())
+                .cors(c -> {})  // <-- explicitly enable Spring Security CORS support
+
+                // For MVP dev: allow everything. We'll lock this down later.
                 .authorizeHttpRequests(auth -> auth
-                        // use an explicit Ant matcher so /api/health/db is definitely public
-                        .requestMatchers(new AntPathRequestMatcher("/api/health/**")).permitAll()
-                        .anyRequest().authenticated()
+                        .anyRequest().permitAll()
                 )
-                .httpBasic(Customizer.withDefaults())   // basic auth for everything else (for now)
-                .formLogin(form -> form.disable());     // disable login page
+                .httpBasic(b -> b.disable())
+                .formLogin(f -> f.disable());
 
         return http.build();
+    }
+
+    @Bean
+    public PasswordEncoder passwordEncoder() {
+        return new BCryptPasswordEncoder(); // strong default
     }
 }

@@ -1,3 +1,4 @@
+# Backups that should never go to GitHub
 debate-frontend_beforeOptionalDebateDetailsPage.zip
 backend_beforeJWT.zip
 
@@ -17,4 +18,3 @@ frontend/debate-frontend/.vs/
 # OS and misc
 .DS_Store
 *.log
-

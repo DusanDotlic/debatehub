@@ -1,5 +1,6 @@
 package com.debatehub.backend.web.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Pattern;
 import jakarta.validation.constraints.Positive;
@@ -8,6 +9,9 @@ public class CreateInvitationRequest {
 
     @NotBlank
     private String debateSlug;
+
+    @Email @NotBlank
+    private String hostEmail; // temp: verify host until JWT
 
     // debater | moderator
     @NotBlank
@@ -23,13 +27,12 @@ public class CreateInvitationRequest {
 
     public String getDebateSlug() { return debateSlug; }
     public void setDebateSlug(String debateSlug) { this.debateSlug = debateSlug; }
-
+    public String getHostEmail() { return hostEmail; }
+    public void setHostEmail(String hostEmail) { this.hostEmail = hostEmail; }
     public String getRoleGranted() { return roleGranted; }
     public void setRoleGranted(String roleGranted) { this.roleGranted = roleGranted; }
-
     public Integer getMaxUses() { return maxUses; }
     public void setMaxUses(Integer maxUses) { this.maxUses = maxUses; }
-
     public Integer getTtlDays() { return ttlDays; }
     public void setTtlDays(Integer ttlDays) { this.ttlDays = ttlDays; }
 }

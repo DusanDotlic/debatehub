@@ -1,0 +1,79 @@
+<app-header></app-header>
+
+<main class="container profile-wrap" *ngIf="!loading; else loadingTpl">
+  <div class="error" *ngIf="error">{{ error }}</div>
+    <!-- Actions: Begin a debate / Join by code -->
+  <section class="card actions-wrap">
+    <div class="actions-grid">
+      <div class="begin">
+        <h3>Begin a debate</h3>
+        <div class="grid">
+          <input class="input" placeholder="Title" [(ngModel)]="newTitle">
+          <textarea class="input" rows="3" placeholder="Description (optional)" [(ngModel)]="newDescription"></textarea>
+          <label style="display:flex; align-items:center; gap:.5rem;">
+            <input type="checkbox" [(ngModel)]="inviteOnly"> Invite-only
+          </label>
+        </div>
+        <button class="btn" [disabled]="busy" (click)="beginDebate()">Create</button>
+      </div>
+
+      <div class="join">
+        <h3>Join via invite code</h3>
+        <div class="grid">
+          <input class="input" placeholder="Enter code e.g. p4i55ttw" [(ngModel)]="joinCode">
+        </div>
+        <button class="btn secondary" [disabled]="busy" (click)="joinByCode()">Join</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Pinned: top-center, max 4 -->
+  <section class="pinned card" *ngIf="pinned?.length">
+    <h2>Pinned debates</h2>
+    <div class="pinned-grid">
+      <app-debate-card *ngFor="let d of pinned | slice:0:4"
+        [debate]="d"
+        [canPin]="true"
+        [pinned]="true"
+        (unpin)="onUnpin(d.slug)">
+      </app-debate-card>
+    </div>
+  </section>
+
+  <!-- Two columns with vertical separator -->
+  <section class="two-col">
+    <div class="col">
+      <h3>Started by you</h3>
+      <div class="grid cards">
+        <app-debate-card *ngFor="let d of started"
+          [debate]="d"
+          [canPin]="true"
+          [pinned]="isPinned(d.slug)"
+          (pin)="onPin(d.slug)"
+          (unpin)="onUnpin(d.slug)">
+        </app-debate-card>
+      </div>
+    </div>
+
+    <div class="separator"></div>
+
+    <div class="col">
+      <h3>Joined by you</h3>
+      <div class="grid cards">
+        <app-debate-card *ngFor="let d of joined"
+          [debate]="d"
+          [canPin]="true"
+          [pinned]="isPinned(d.slug)"
+          (pin)="onPin(d.slug)"
+          (unpin)="onUnpin(d.slug)">
+        </app-debate-card>
+      </div>
+    </div>
+  </section>
+</main>
+
+<ng-template #loadingTpl>
+  <app-header></app-header>
+  <div class="container" style="padding:2rem 0;">Loading…</div>
+</ng-template>

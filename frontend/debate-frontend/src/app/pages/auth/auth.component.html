@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<main class="auth-wrap">
+  <div class="card auth-card">
+    <div class="tabs">
+      <button class="tab" [class.active]="mode==='login'" (click)="mode='login'">Login</button>
+      <button class="tab" [class.active]="mode==='register'" (click)="mode='register'">Register</button>
+    </div>
+
+    <div class="grid">
+      <label>Email
+        <input class="input" type="email" [(ngModel)]="email" placeholder="you@example.com">
+      </label>
+
+      <label *ngIf="mode==='register'">Display name
+        <input class="input" type="text" [(ngModel)]="displayName" placeholder="Your name">
+      </label>
+
+      <label>Password
+        <input class="input" type="password" [(ngModel)]="password" placeholder="••••••••">
+      </label>
+    </div>
+
+    <div class="error" *ngIf="error">{{ error }}</div>
+
+    <button class="btn" (click)="submit()">{{ mode==='login' ? 'Login' : 'Create account' }}</button>
+  </div>
+</main>

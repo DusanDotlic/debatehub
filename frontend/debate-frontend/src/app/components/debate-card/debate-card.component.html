@@ -1,0 +1,15 @@
+<div class="card card-pad">
+  <div class="top-row">
+    <h3 class="title">{{ debate?.title }}</h3>
+    <span class="status" [class.live]="debate?.status==='live'">{{ debate?.status }}</span>
+  </div>
+  <div class="meta">
+    <div>Host: <strong>{{ debate?.hostDisplayName || '—' }}</strong></div>
+    <div>Participants: {{ debate?.participantCount ?? 0 }}</div>
+  </div>
+
+  <div class="actions" *ngIf="canPin">
+    <button *ngIf="!pinned" class="btn" (click)="pin.emit()">Pin</button>
+    <button *ngIf="pinned" class="btn secondary" (click)="unpin.emit()">Unpin</button>
+  </div>
+</div>

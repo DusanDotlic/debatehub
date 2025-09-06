@@ -1,1 +1,54 @@
-/* You can add global styles to this file, and also import other style files */
+/* ==== Theme tokens ==== */
+:root,
+.theme-light {
+  --bg: #f3f7ff;               /* soft blue background */
+  --card: #ffffff;
+  --text: #0b1b33;
+  --muted: #4a5b78;
+  --primary: #2f6fec;          /* soft blue primary */
+  --primary-contrast: #ffffff;
+  --border: #dbe6ff;
+  --sep: #c9d7ff;
+  --shadow: 0 10px 24px rgba(47, 111, 236, 0.08);
+}
+
+.theme-dark {
+  --bg: #0b1b33;               /* rich dark blue */
+  --card: #11254a;
+  --text: #e6eeff;
+  --muted: #a6b7d8;
+  --primary: #6aa8ff;
+  --primary-contrast: #07152b;
+  --border: #203a6b;
+  --sep: #17335f;
+  --shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ==== Base reset ==== */
+* { box-sizing: border-box; }
+html, body { height: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Helvetica Neue", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+}
+
+/* Utility */
+.container { width: min(1200px, 92%); margin: 0 auto; }
+.btn {
+  display: inline-flex; align-items: center; gap: .5rem;
+  background: var(--primary); color: var(--primary-contrast);
+  border: 0; border-radius: 12px; padding: .6rem 1rem; cursor: pointer;
+  box-shadow: var(--shadow);
+}
+.btn.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+.input, .select {
+  width: 100%; padding: .65rem .8rem; border-radius: 10px;
+  border: 1px solid var(--border); background: var(--card); color: var(--text);
+}
+.card {
+  background: var(--card); border: 1px solid var(--border);
+  border-radius: 16px; box-shadow: var(--shadow);
+}
+.grid { display: grid; gap: 1rem; }
