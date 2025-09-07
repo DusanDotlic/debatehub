@@ -52,8 +52,8 @@ GRANT ALL PRIVILEGES ON DATABASE debatehub TO debate_user;
 
 
 ### 3.2 Backend (Spring)
-```Backend
 From terminal
+```Backend
 
 # from project root
 cd backend
@@ -66,8 +66,8 @@ cd backend
 ```
 
 ### 3.2 Frontend (Angular)
-```Frontend
 From terminal
+```Frontend
 
 # from project root
 cd "frontend/debate-frontend"
