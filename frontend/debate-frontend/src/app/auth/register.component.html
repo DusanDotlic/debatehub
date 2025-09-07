@@ -1,0 +1,19 @@
+<div class="auth-card">
+  <h2>Register</h2>
+
+  <!-- CHANGED: added [formGroup]="form" so (ngSubmit) is emitted -->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Email</label>
+    <input type="email" formControlName="email" />
+
+    <label>Display name</label>
+    <input type="text" formControlName="displayName" />
+
+    <label>Password</label>
+    <input type="password" formControlName="password" />
+
+    <button type="submit" [disabled]="form.invalid">Create Account</button>
+    <div class="error" *ngIf="error">{{ error }}</div>
+    <p class="muted">Already have an account? <a routerLink="/login">Sign in</a></p>
+  </form>
+</div>

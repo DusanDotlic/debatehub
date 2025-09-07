@@ -1,0 +1,15 @@
+<div class="debate-card" *ngIf="!loading">
+  <h2>{{ data?.title }}</h2>
+  <p>{{ data?.description }}</p>
+  <p class="muted"><b>Host:</b> {{ data?.hostDisplayName || data?.hostEmail }}</p>
+  <p class="muted"><b>Started:</b> {{ data?.createdAt | date:'medium' }}</p>
+  <p><b>Participants:</b> {{ data?.participants?.length || 1 }}</p>
+
+  <div class="row">
+    <a class="btn" [routerLink]="['/debates', slug, 'edit']">Edit</a>
+    <button class="btn danger" (click)="delete()">Delete</button>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+</div>
+<div *ngIf="loading">Loading...</div>

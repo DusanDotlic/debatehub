@@ -10,4 +10,7 @@ import java.util.UUID;
 public interface InvitationRepository extends JpaRepository<Invitation, UUID> {
     Optional<Invitation> findByCode(String code);
     long countByDebate(Debate debate);
+    void deleteByDebate(com.debatehub.backend.domain.Debate debate);
+
+
 }

@@ -1,0 +1,15 @@
+<div class="debate-card">
+  <h2>{{ slug ? 'Edit debate' : 'Start a debate' }}</h2>
+
+  <!-- CHANGED: added [formGroup]="form" so (ngSubmit) is emitted -->
+  <form [formGroup]="form" (ngSubmit)="submit()">
+    <label>Title</label>
+    <input type="text" formControlName="title" />
+
+    <label>Description</label>
+    <textarea rows="4" formControlName="description"></textarea>
+
+    <button type="submit" [disabled]="form.invalid">{{ slug ? 'Save' : 'Create' }}</button>
+    <div class="error" *ngIf="error">{{ error }}</div>
+  </form>
+</div>

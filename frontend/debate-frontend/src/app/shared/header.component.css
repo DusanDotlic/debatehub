@@ -1,0 +1,21 @@
+.hdr {
+  display:flex; align-items:center; justify-content:space-between;
+  padding: 10px 16px; background: var(--surface); box-shadow: var(--elev);
+  position: sticky; top:0; z-index: 10;
+}
+
+.logo { font-weight: 800; letter-spacing: .2px; cursor:pointer; }
+
+nav { display:flex; align-items:center; gap: 8px; flex-wrap: wrap; }
+
+nav a, nav button {
+  border:none; background: transparent; color: var(--text);
+  text-decoration:none; cursor:pointer; padding:8px 10px; border-radius:10px;
+  font-weight: 600;
+}
+
+nav a.active { background: var(--input); }
+
+nav a:hover, nav button:hover { background: var(--input); }
+
+.icon-btn { border: 1px solid var(--border); }

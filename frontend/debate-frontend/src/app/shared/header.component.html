@@ -1,0 +1,12 @@
+<header class="hdr">
+  <div class="logo" routerLink="/">DebateHub</div>
+  <nav>
+    <a routerLink="/profile" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" *ngIf="auth.isAuthenticated()">Profile</a>
+    <a routerLink="/debates/new" routerLinkActive="active" *ngIf="auth.isAuthenticated()">Start</a>
+    <a routerLink="/account" routerLinkActive="active" *ngIf="auth.isAuthenticated()">Account</a>
+    <button (click)="toggleTheme()" title="Toggle theme" class="icon-btn" aria-label="Toggle theme">🌓</button>
+    <button *ngIf="auth.isAuthenticated()" class="icon-btn" (click)="logout()">Logout</button>
+    <a *ngIf="!auth.isAuthenticated()" routerLink="/login" routerLinkActive="active">Login</a>
+  </nav>
+
+</header>

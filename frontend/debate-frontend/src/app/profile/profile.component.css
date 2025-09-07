@@ -1,0 +1,47 @@
+.profile { padding: 16px; max-width: 1100px; margin: 0 auto; }
+
+.hdr { display:flex; align-items:center; gap:12px; margin: 8px 0 16px; }
+.hdr .btn { margin-left:auto; }
+
+.pinned h3 { margin: 6px 0 10px; }
+
+/* 4 columns; invisible stubs reserve the row height */
+.pinned-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(220px, 1fr));
+  gap: 12px;
+  min-height: 145px;         /* keeps space even with fewer than 4 cards */
+}
+
+.card {
+  display:block;
+  padding:12px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--elev);
+  color: var(--text);
+  text-decoration: none;
+  overflow:hidden;
+  position: relative;
+  min-height: 120px;
+}
+.card h4 { margin:0 0 6px; text-overflow: ellipsis; overflow:hidden; white-space: nowrap; }
+
+.card.stub { visibility: hidden; } /* takes space but not visible */
+
+.pin-row { display:flex; justify-content:flex-end; margin-top: 8px; }
+.btn.sm { padding: 6px 10px; border-radius: 10px; font-size: .9rem; }
+
+.two-col { display:grid; grid-template-columns: 1fr 4px 1fr; gap:16px; align-items:start; margin-top: 18px; }
+.separator { background: var(--border); width:2px; border-radius: 2px; }
+
+.grid { display:grid; grid-template-columns: repeat(2, 1fr); gap:12px; }
+
+.error { color: var(--danger); margin-top: 8px; }
+
+@media (max-width: 1100px) {
+  .pinned-grid { grid-template-columns: repeat(2, minmax(200px, 1fr)); }
+  .grid { grid-template-columns: 1fr; }
+  .two-col { grid-template-columns: 1fr; }
+  .separator { display:none; }
+}

@@ -1,0 +1,31 @@
+.wrap { max-width: 880px; margin: 24px auto; padding: 0 12px; }
+
+.card {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--elev);
+  margin-bottom: 16px;
+}
+
+.card.danger {
+  border: 1px solid color-mix(in srgb, var(--danger) 45%, transparent);
+}
+
+.row { display:flex; gap: 10px; flex-wrap: wrap; }
+
+.error { color: var(--danger); margin-top: 8px; }
+.msg { margin-top:12px; color: #69db7c; }
+
+.card {
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--elev);
+  margin-bottom: 16px;
+}
+
+/* 👇 ADD THIS BLOCK */
+.card form > * + * {
+  margin-top: 12px;      /* ensures button won’t touch the previous input */
+}

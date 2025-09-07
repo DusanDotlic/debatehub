@@ -1,0 +1,43 @@
+<div class="wrap">
+  <h2>Account Settings</h2>
+
+  <section class="card">
+    <h3>Change Password</h3>
+
+    <form [formGroup]="pwForm" (ngSubmit)="changePassword()">
+      <label>Current password</label>
+      <input type="password" formControlName="currentPassword" />
+
+      <label>New password</label>
+      <input type="password" formControlName="newPassword" />
+
+      <button type="submit" [disabled]="pwForm.invalid">Update password</button>
+      <div class="error" *ngIf="pwError">{{ pwError }}</div>
+    </form>
+  </section>
+
+  <section class="card danger">
+    <h3>Delete Account</h3>
+    <p>This cannot be undone.</p>
+
+    <!-- First click shows confirmation UI -->
+    <div *ngIf="!confirmDel">
+      <button (click)="deleteAccount()">Delete my account</button>
+    </div>
+
+    <!-- Confirmation UI with its own password field -->
+    <form *ngIf="confirmDel" [formGroup]="delForm" (ngSubmit)="deleteAccount()">
+      <label>Confirm with password</label>
+      <input type="password" formControlName="password" />
+
+      <div class="row">
+        <button type="submit" class="btn danger">Confirm delete</button>
+        <button type="button" class="btn secondary" (click)="cancelDelete()">Cancel</button>
+      </div>
+
+      <div class="error" *ngIf="delError">{{ delError }}</div>
+    </form>
+  </section>
+
+  <div class="msg" *ngIf="msg">{{ msg }}</div>
+</div>

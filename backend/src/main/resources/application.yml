@@ -5,7 +5,7 @@ spring:
   datasource:
     url: jdbc:postgresql://localhost:5432/debatehub
     username: debate_user
-    password: ${DB_PASSWORD:ChangeThisPassword!}
+    password: ${DB_PASSWORD:ChangeMe_Local_Only_123}
   jpa:
     hibernate:
       ddl-auto: validate
@@ -16,3 +16,8 @@ spring:
   jackson:
     serialization:
       WRITE_DATES_AS_TIMESTAMPS: false
+
+app:
+  jwt:
+    secret: "5glsYXwh7LkYCqHFkE6YPVqUZHBIV26zbrhI4rgXG7jlDaMoqIfYo5lwfAJ2tZvQ"
+    expiresInMinutes: 120

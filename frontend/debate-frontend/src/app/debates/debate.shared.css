@@ -1,0 +1,12 @@
+.debate-card {
+  max-width: 760px;
+  margin: 24px auto;
+  padding: 22px;
+  border-radius: var(--radius);
+  background: var(--surface);
+  box-shadow: var(--elev);
+}
+
+.row { display:flex; gap:10px; flex-wrap: wrap; }
+
+.error { color: var(--danger); margin-top:10px; }

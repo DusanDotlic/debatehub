@@ -1,0 +1,65 @@
+<div class="profile" *ngIf="!loading; else loadingTpl">
+  <div class="hdr">
+    <h2>Your Debates</h2>
+    <a class="btn" routerLink="/debates/new">Start new debate</a>
+  </div>
+
+  <!-- Pinned row (always reserves 4 slots) -->
+  <section class="pinned">
+    <h3>Pinned</h3>
+    <div class="pinned-grid">
+      <a class="card" *ngFor="let d of pinned" [routerLink]="['/debates', d.slug]">
+        <h4>{{ d.title }}</h4>
+        <p>Participants: {{ d.participantCount || 1 }}</p>
+        <p class="muted">Started: {{ d.createdAt | date:'short' }}</p>
+        <div class="pin-row">
+          <button type="button" class="btn secondary sm" (click)="togglePin($event, d)">Unpin</button>
+        </div>
+      </a>
+      <!-- invisible stubs fill up to 4 slots so layout never jumps -->
+      <div class="card stub" *ngFor="let _ of pinPlaceholders"></div>
+    </div>
+  </section>
+
+  <div class="two-col">
+    <section>
+      <h3>Created by you</h3>
+      <div class="grid">
+        <a class="card" *ngFor="let d of created" [routerLink]="['/debates', d.slug]">
+          <h4>{{ d.title }}</h4>
+          <p>Participants: {{ d.participantCount || 1 }}</p>
+          <p class="muted">Started: {{ d.createdAt | date:'short' }}</p>
+          <div class="pin-row">
+            <button type="button"
+                    class="btn secondary sm"
+                    (click)="togglePin($event, d)">{{ isPinned(d.slug) ? 'Unpin' : 'Pin' }}</button>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <div class="separator"></div>
+
+    <section>
+      <h3>Joined</h3>
+      <div class="grid">
+        <a class="card" *ngFor="let d of joined" [routerLink]="['/debates', d.slug]">
+          <h4>{{ d.title }}</h4>
+          <p class="muted">Host: {{ d.hostDisplayName || d.hostEmail }}</p>
+          <p class="muted">Started: {{ d.createdAt | date:'short' }}</p>
+          <div class="pin-row">
+            <button type="button"
+                    class="btn secondary sm"
+                    (click)="togglePin($event, d)">{{ isPinned(d.slug) ? 'Unpin' : 'Pin' }}</button>
+          </div>
+        </a>
+      </div>
+    </section>
+  </div>
+
+  <div class="error" *ngIf="error">{{ error }}</div>
+</div>
+
+<ng-template #loadingTpl>
+  <div class="profile"><p class="muted">Loading…</p></div>
+</ng-template>
