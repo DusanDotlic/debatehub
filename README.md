@@ -50,8 +50,9 @@ CREATE DATABASE debatehub OWNER debate_user;
 GRANT ALL PRIVILEGES ON DATABASE debatehub TO debate_user;
 ```
 
-```Backend
+
 ### 3.2 Backend (Spring)
+```Backend
 From terminal
 
 # from project root
@@ -63,8 +64,9 @@ cd backend
 # mac/linux:
 ./mvnw spring-boot:run
 ```
-```Frontend
+
 ### 3.2 Frontend (Angular)
+```Frontend
 From terminal
 
 # from project root
