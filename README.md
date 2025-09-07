@@ -48,8 +48,9 @@ Create DB & user (psql):
 CREATE ROLE debate_user WITH LOGIN PASSWORD 'ChangeMe_Local_Only_123';
 CREATE DATABASE debatehub OWNER debate_user;
 GRANT ALL PRIVILEGES ON DATABASE debatehub TO debate_user;
+```
 
-
+```Backend
 ### 3.2 Backend (Spring)
 From terminal
 
@@ -61,9 +62,9 @@ cd backend
 .\mvnw.cmd spring-boot:run
 # mac/linux:
 ./mvnw spring-boot:run
-
-
-### 3.2 Backend (Spring)
+```
+```Frontend
+### 3.2 Frontend (Angular)
 From terminal
 
 # from project root
