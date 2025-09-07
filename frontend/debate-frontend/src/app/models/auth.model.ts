@@ -3,7 +3,7 @@ export interface RegisterRequest { email: string; displayName: string; password:
 export interface AuthResponse {
   success: boolean;
   message?: string;
-  token?: string;        // if your backend returns JWT here
-  refreshToken?: string; // if applicable
+  token?: string;
+  refreshToken?: string;
   user?: { id: number; email: string; username: string; };
 }

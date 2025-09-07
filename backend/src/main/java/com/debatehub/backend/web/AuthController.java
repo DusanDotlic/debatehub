@@ -12,7 +12,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-//new
 import com.debatehub.backend.service.UserService;
 import com.debatehub.backend.web.dto.ChangePasswordRequest;
 import com.debatehub.backend.web.dto.DeleteAccountRequest;

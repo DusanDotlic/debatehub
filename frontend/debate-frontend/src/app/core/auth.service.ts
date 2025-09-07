@@ -26,7 +26,6 @@ export class AuthService {
   }
 
   logout() {
-    // If backend has /auth/logout, you can call it; either way clear local state:
     localStorage.removeItem(ACCESS_KEY);
     localStorage.removeItem(USER_KEY);
     this.user$.next(null);

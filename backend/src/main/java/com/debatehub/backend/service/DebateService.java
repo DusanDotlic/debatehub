@@ -92,7 +92,7 @@ public class DebateService {
         var u = userRepo.findByEmailIgnoreCase(email).orElseThrow(() -> new IllegalArgumentException("User not found"));
         var d = debateRepo.findBySlug(slug).orElseThrow(() -> new NoSuchElementException("Debate not found"));
         var id = new UserPinId(u.getId(), d.getId());
-        // idempotent: if already pinned, return false to let controller say "Already pinned"
+        // Can't be changed: if already pinned, return false to let controller say "Already pinned"
         if (pinRepo.existsById(id)) return false;
         UserPin pin = new UserPin();
         pin.setId(id);
@@ -194,7 +194,6 @@ public class DebateService {
         // Prevent host “joining” again
         if (d.getHostUser() != null && d.getHostUser().getId().equals(u.getId())) return;
 
-        // Idempotent join
         var id = new DebateParticipantId(d.getId(), u.getId());
         if (participantRepo.existsById(id)) return;
 

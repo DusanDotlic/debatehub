@@ -36,7 +36,7 @@ public class DebateController {
     }
 
 
-    @GetMapping("/mine/started") // if "started" == "hosted" in your domain, this is identical
+    @GetMapping("/mine/started")
     public ResponseEntity<?> mineStarted(java.security.Principal principal) {
         if (principal == null) {
             return ResponseEntity.status(401).body(new SimpleResponse(false, "Unauthorized"));

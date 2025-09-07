@@ -1,7 +1,6 @@
 <div class="auth-card">
   <h2>Register</h2>
 
-  <!-- CHANGED: added [formGroup]="form" so (ngSubmit) is emitted -->
   <form [formGroup]="form" (ngSubmit)="submit()">
     <label>Email</label>
     <input type="email" formControlName="email" />

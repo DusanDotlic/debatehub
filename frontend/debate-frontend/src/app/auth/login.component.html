@@ -1,14 +1,11 @@
 <div class="auth-card">
   <h2>Login</h2>
 
-  <!-- CHANGED: added [formGroup]="form" so (ngSubmit) is emitted -->
   <form [formGroup]="form" (ngSubmit)="submit()">
     <label>Email</label>
-    <!-- CHANGED: formControlName instead of [formControl] -->
     <input type="email" formControlName="email" />
 
     <label>Password</label>
-    <!-- CHANGED: formControlName instead of [formControl] -->
     <input type="password" formControlName="password" />
 
     <button type="submit" [disabled]="form.invalid">Sign In</button>

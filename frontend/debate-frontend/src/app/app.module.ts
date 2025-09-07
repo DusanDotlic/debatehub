@@ -28,10 +28,10 @@ import { AuthInterceptor } from './core/auth.interceptor';
     AccountSettingsComponent
   ],
   imports: [
-    BrowserModule,           // provides CommonModule (date pipe), etc.
-    ReactiveFormsModule,     // <-- needed for [formControl]
+    BrowserModule,
+    ReactiveFormsModule,
     HttpClientModule,
-    AppRoutingModule         // exports RouterModule (routerLink)
+    AppRoutingModule
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, multi: true, useClass: AuthInterceptor }

@@ -7,7 +7,6 @@ import { forkJoin, map, Observable } from 'rxjs';
 export class DebateService {
   constructor(private api: ApiClientService) {}
 
-  // Backend splits "mine" into three endpoints; combine them here for the Profile UI
   listMine(): Observable<{ created: DebateCard[]; joined: DebateCard[]; pinned: DebateCard[] }> {
     return forkJoin({
       created: this.api.get<DebateCard[]>('/debates/mine/started'),
@@ -34,7 +33,6 @@ export class DebateService {
     return this.api.delete(`/debates/${slug}`);
   }
 
-  // --- Pinning ---
   pin(slug: string) {
     return this.api.post(`/debates/${slug}/pin`, {}); // POST, empty body
   }

@@ -25,7 +25,6 @@
       <button (click)="deleteAccount()">Delete my account</button>
     </div>
 
-    <!-- Confirmation UI with its own password field -->
     <form *ngIf="confirmDel" [formGroup]="delForm" (ngSubmit)="deleteAccount()">
       <label>Confirm with password</label>
       <input type="password" formControlName="password" />

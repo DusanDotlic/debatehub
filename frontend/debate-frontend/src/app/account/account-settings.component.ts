@@ -14,16 +14,13 @@ export class AccountSettingsComponent {
   delError = '';
   msg = '';
 
-  // Show/hide the delete confirmation UI
   confirmDel = false;
 
-  // Change-password form
   pwForm = this.fb.group({
     currentPassword: ['', Validators.required],
     newPassword: ['', [Validators.required, Validators.minLength(6)]]
   });
 
-  // Delete-account confirmation form (separate field!)
   delForm = this.fb.group({
     password: ['', Validators.required]
   });
@@ -45,9 +42,8 @@ export class AccountSettingsComponent {
     });
   }
 
-  // First click reveals the password field; second (submit) actually deletes
+  // First click reveals the password field; second submit actually deletes
   deleteAccount() {
-    // if panel is closed, open it and stop here
     if (!this.confirmDel) {
       this.confirmDel = true;
       this.delError = '';
@@ -55,7 +51,6 @@ export class AccountSettingsComponent {
       return;
     }
 
-    // panel is open: require password and submit
     if (this.delForm.invalid) {
       this.delForm.markAllAsTouched();
       return;

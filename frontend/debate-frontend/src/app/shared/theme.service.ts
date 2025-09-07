@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })
 export class ThemeService {
-  private key = 'debatehub_theme'; // 'light' | 'dark'
+  private key = 'debatehub_theme';
 
   init() {
     const raw = localStorage.getItem(this.key);

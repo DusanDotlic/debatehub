@@ -5,14 +5,13 @@ import java.time.OffsetDateTime;
 public class CreateInvitationResponse {
     private boolean success;
     private String code;
-    private String message;            // <-- add message
-    private OffsetDateTime expiresAt;  // <-- use OffsetDateTime to match controller
+    private String message;
+    private OffsetDateTime expiresAt;
     private Integer maxUses;
     private Integer uses;
 
     public CreateInvitationResponse() {}
 
-    // Match controller signature: (boolean, String, String, OffsetDateTime, int, int)
     public CreateInvitationResponse(boolean success,
                                     String code,
                                     String message,

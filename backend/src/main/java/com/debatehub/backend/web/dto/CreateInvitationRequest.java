@@ -17,7 +17,7 @@ public class CreateInvitationRequest {
     @Positive
     private Integer maxUses = 1;
 
-    // days from now; optional (default 7)
+    // days from now; optional
     @Positive
     private Integer ttlDays = 7;
 

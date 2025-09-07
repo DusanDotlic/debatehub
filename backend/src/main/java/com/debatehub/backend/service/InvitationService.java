@@ -73,7 +73,7 @@ public class InvitationService {
 
         var debate = inv.getDebate();
         if (participantRepo.existsByDebateAndUser(debate, user)) {
-            return true; // idempotent
+            return true; // Cant be changed
         }
 
         DebateParticipant p = new DebateParticipant();

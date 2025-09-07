@@ -25,7 +25,6 @@
   margin-bottom: 16px;
 }
 
-/* 👇 ADD THIS BLOCK */
 .card form > * + * {
-  margin-top: 12px;      /* ensures button won’t touch the previous input */
+  margin-top: 12px;
 }

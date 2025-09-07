@@ -1,4 +1,3 @@
-/* App shell styles (required so Angular CSS loader receives a string) */
 :host {
   display: block;
 }
