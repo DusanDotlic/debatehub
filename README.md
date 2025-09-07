@@ -10,7 +10,7 @@ Full-stack demo for Internet Technologies exam.
 
 ---
 
-## 1) Requirements ✳️ ↔️ Implementation
+## 1) Requirements - Implementation
 
 - Relational DB with **at least 2 related tables** ➜ `users`, `debates` (+ participants relation)
 - Backend framework ➜ **Spring Boot**
