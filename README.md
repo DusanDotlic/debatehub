@@ -10,7 +10,7 @@ Full-stack demo for Internet Technologies exam.
 
 ---
 
-## 1) Requirements ✳️ ↔️ Implementation
+## 1) Requirements - Implementation
 
 - Relational DB with **at least 2 related tables** ➜ `users`, `debates` (+ participants relation)
 - Backend framework ➜ **Spring Boot**
@@ -34,4 +34,42 @@ Full-stack demo for Internet Technologies exam.
 - Password env var: `DB_PASSWORD` (fallback default is `ChangeMe_Local_Only_123`)
 - JDBC: `jdbc:postgresql://localhost:5432/debatehub`
 
-> These match `backend/src/
+> These match `backend/src/main/resources/application.yml`.
+
+---
+
+## 3) Local setup
+
+
+### 3.1 Data (PostgreSQL)
+Create DB & user (psql):
+
+```sql
+CREATE ROLE debate_user WITH LOGIN PASSWORD 'ChangeMe_Local_Only_123';
+CREATE DATABASE debatehub OWNER debate_user;
+GRANT ALL PRIVILEGES ON DATABASE debatehub TO debate_user;
+```
+
+
+### 3.2 Backend (Spring)
+From terminal
+```Backend
+
+# from project root
+cd backend
+
+# run Spring Boot
+# Windows:
+.\mvnw.cmd spring-boot:run
+# mac/linux:
+./mvnw spring-boot:run
+```
+
+### 3.2 Frontend (Angular)
+From terminal
+```Frontend
+
+# from project root
+cd "frontend/debate-frontend"
+npm install
+ng serve
