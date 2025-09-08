@@ -47,7 +47,7 @@ The database dump already includes some users you can use for login tests:
 | host@example.com   | Password123! | Host test    |
 | guest@example.com  | Password123! | Guest test   |
 
-⚠️ Passwords are stored hashed with BCrypt. To create new accounts, use the `/api/auth/register` endpoint.
+Passwords are stored hashed with BCrypt. To create new accounts, use the `/api/auth/register` endpoint.
 
 ---
 
